@@ -160,7 +160,7 @@ The application will be accessible at `http://127.0.0.1:5000`.
 
 ## Open to Contributors
 
-We welcome contributions from developers who are passionate about IPL analytics or data science. You can:
+I welcome contributions from developers who are passionate about IPL analytics or data science. You can:
 
 - Fix bugs or improve existing functionality.
 - Add new APIs or enhance existing ones.
