@@ -1,2 +1,184 @@
 # IPLSync
-IPLSync - A Flask-powered multi-API service delivering IPL stats and insights. Features include team details, head-to-head comparisons, player stats (batting &amp; bowling), and team records. Designed with scalable architecture and tested with Postman, IPLSync sets the foundation for building intelligent API-driven solutions. 
+
+**IPLSync** is a Flask-powered multi-API service designed to provide comprehensive IPL (Indian Premier League) statistics and insights. The project allows users to fetch detailed team records, head-to-head statistics, player-specific batting and bowling stats, and much more. With its scalable and modular architecture, IPLSync is set to become a robust foundation for API-driven IPL analytics and future web or desktop applications.
+
+---
+
+## Features
+
+- **Team Information**: Retrieve a list of all IPL teams.
+- **Head-to-Head Comparisons**: Fetch detailed match statistics between any two IPL teams.
+- **Player Statistics**: View batting and bowling records for specific players.
+- **Team Records**: Access detailed performance records of IPL teams.
+- **JSON Formatting**: Pretty-print API responses for improved readability.
+- **Future Expansion**: Modular structure supports integration of more APIs and functionalities.
+
+---
+
+## File Structure
+
+The project is organized as follows:
+
+
+1. **`app.py`**:  
+   The core Flask application with the following API routes:
+   - `/`: Welcome message.
+   - `/api/teams`: List all IPL teams.
+   - `/api/teamvteam`: Fetch head-to-head statistics between two teams.
+   - `/api/team-record`: Get overall performance records for a specific team.
+   - `/api/batting-record`: View batting statistics for a player.
+   - `/api/bowling-record`: View bowling statistics for a player.
+
+2. **`records_API.py`**:  
+   Contains the main logic for fetching and processing team and player records:
+   - `teamAPI`: Computes statistics for teams.
+   - `batsmanAPI`: Fetches batting records for players.
+   - `bowlerAPI`: Fetches bowling records for players.
+
+3. **`ipl.py`**:  
+   Helper functions for IPL-specific data processing:
+   - `teamsAPI`: Retrieve a list of all IPL teams.
+   - `teamVteamAPI`: Analyze match results between two IPL teams.
+
+4. **`json-formatter.py`**:  
+   Utility script to format JSON outputs for better readability.
+
+5. **`data/ipl_matches.csv`**:  
+   A CSV file containing IPL match data sourced dynamically from a public Google Spreadsheet.
+
+6. **`data/ipl_ball.csv`**:  
+   A CSV file containing IPL ball-by-ball data sourced dynamically from a public Google Spreadsheet.
+
+---
+
+## Installation Guide
+
+### Prerequisites
+
+Ensure you have the following installed on your system:
+- Python 3.8 or higher
+- pip (Python package manager)
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/your-username/IPLSync.git
+cd IPLSync
+```
+
+Step 2: Set Up Virtual Environment
+bash
+Copy code
+python -m venv venv
+source venv/bin/activate   # On Windows: venv\Scripts\activate
+Step 3: Install Dependencies
+Install the required Python packages using:
+
+bash
+Copy code
+pip install -r requirements.txt
+Step 4: Run the Application
+Start the Flask server:
+
+bash
+Copy code
+python app.py
+The application will be accessible at http://127.0.0.1:5000.
+
+API Endpoints
+1. Welcome Message
+URL: /
+Method: GET
+Response: "Hello World"
+2. List All Teams
+URL: /api/teams
+Method: GET
+Response:
+json
+Copy code
+{
+    "teams": ["Team1", "Team2", ...]
+}
+3. Head-to-Head Statistics
+URL: /api/teamvteam?team1=<team1>&team2=<team2>
+Method: GET
+Response:
+json
+Copy code
+{
+    "total_matches": "15",
+    "Team1": "8",
+    "Team2": "7",
+    "draws": "0"
+}
+4. Team Records
+URL: /api/team-record?team=<team_name>
+Method: GET
+Response:
+json
+Copy code
+{
+    "matchesplayed": 200,
+    "won": 120,
+    "loss": 70,
+    "noResult": 10,
+    "title": 3
+}
+5. Player Batting Statistics
+URL: /api/batting-record?batsman=<batsman_name>
+Method: GET
+Response:
+json
+Copy code
+{
+    "innings": 100,
+    "runs": 3200,
+    "fours": 400,
+    "sixes": 150,
+    ...
+}
+6. Player Bowling Statistics
+URL: /api/bowling-record?bowler=<bowler_name>
+Method: GET
+Response:
+json
+Copy code
+{
+    "innings": 100,
+    "wicket": 150,
+    "economy": 6.5,
+    ...
+}
+Future Plans
+API Expansion: Add predictive analytics and advanced performance metrics.
+Web Interface: Develop a front-end interface using React or Flask templates.
+Desktop Application: Create a desktop application for offline usage.
+Enhanced Data Visualization: Incorporate graphs and charts for better analytics.
+Credits
+Contributor: Ritij Srivastava
+Acknowledgements:
+Pandas for data manipulation.
+NumPy for numerical computations.
+Flask for API development.
+Google Sheets for hosting IPL data.
+License
+This project is licensed under the MIT License. Feel free to use, modify, and distribute this project as per the terms of the license.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+   
+   
